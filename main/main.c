@@ -38,7 +38,7 @@ void trigger_task (void *p) {
 
     while (1) {
         gpio_put(TRIG_PIN, 1);
-        sleep_us(10);
+        vTaskDelay(pdMS_TO_TICKS(1));
         gpio_put(TRIG_PIN, 0);
         xSemaphoreGive(xSemaphoreTrigger);
         vTaskDelay(pdMS_TO_TICKS(100));
